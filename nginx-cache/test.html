@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>accept</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <script src="/script.js"></script> -->
+</head>
+
+<body>
+    <h1>11</h1>
+    <div>this is data<span id='data'></span></div>
+    <script>
+    fetch('/data').then(
+      function(resp){
+        console.log(resp);
+        
+        return resp.text()
+      }).then(
+        function(text){
+          document.getElementById('data').innerText = text;
+        }
+      )
+    
+    </script>
+</body>
+</html>
