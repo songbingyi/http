@@ -20,7 +20,7 @@ http.createServer((request, response) => {
     }
     if (request.url === '/data') {
         response.writeHead(200, {
-            'Cache-control': 'max-age=20'
+            'Cache-control': 's-max-age=1'
         })
         wait(2).then(
             () => {
