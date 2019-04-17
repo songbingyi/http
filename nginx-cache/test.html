@@ -2,28 +2,65 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>accept</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <script src="/script.js"></script> -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>accept</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <script src="/script.js"></script> -->
 </head>
 
 <body>
-    <h1>11</h1>
-    <div>this is data<span id='data'></span></div>
-    <script>
+  <h1>11</h1>
+  <div>this is data<span id='data'></span></div>
+  <script>
     fetch('/data').then(
-      function(resp){
-        console.log(resp);
-        
+      function (resp) {
+
         return resp.text()
       }).then(
-        function(text){
+        function (text) {
           document.getElementById('data').innerText = text;
         }
       )
-    
-    </script>
+
+  </script>
+  <script>
+    let arrayA = [];
+    let setArray = () => {
+
+      return new Promise((reslove, reject) => {
+        for (let i = 0;i < 10000; i++) {
+        arrayA.push(Math.ceil(Math.random()*10))
+        // if(i == 1000){
+        };
+      // }
+      reslove(arrayA)
+
+    })
+    }
+    setArray().then(
+      (arrayA) => {
+        let set = new Set(arrayA);
+        uniq(arrayA)
+        console.log(Array.from(set));
+        
+        console.log(Array.isArray([...set]));
+      }
+    )
+
+    function uniq(arrayA){
+      let temp = [];
+      for (let index = 0; index < arrayA.length; index++) {
+        const element = arrayA[index];
+        if(temp.indexOf(element) === -1){
+          temp.push(element)
+        }
+      }
+      console.log(temp);
+      
+      return temp;
+    }
+  </script>
 </body>
+
 </html>
